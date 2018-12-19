@@ -20,3 +20,7 @@ const result = infix(Int) (1) ["+"] (2) ["+"] (5) ["*"] (5) ["+"] (2) .unwrap;
 ## Properties
 
 The expression `infix(F)(x).y(...).z(...).unwrap` desugars to: `F.z(...)(F.y(...)(x))`
+
+## Disclaimer
+
+Use of this library may result in you being instantly fired. I accept no responsibility.
