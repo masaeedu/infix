@@ -13,7 +13,8 @@ const Int = {
   "/": x => y => y / x
 };
 
-const result = infix(Int)(1)["+"](2)["+"](5)["*"](5)["+"](2).unwrap;
+const result = infix(Int) (1) ["+"] (2) ["+"] (5) ["*"] (5) ["+"] (2) .unwrap;
+// => 42
 ```
 
 ## Properties
