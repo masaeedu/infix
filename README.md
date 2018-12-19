@@ -24,19 +24,15 @@ const result = infix(Int) (1) ["+"] (2) ["+"] (5) ["*"] (5) ["+"] (2) .unwrap;
 The expression:
 
 ```js
-infix(F)
-  (a)
+infix(F)(a)
   .f(b)
-  .g(c)
-  .unwrap
+  .g(c).unwrap
 ```
 
 desugars to:
 
 ```js
-F.g(c)(
-  F.f(b)(
-    a))
+F.g(c)(F.f(b)(a))
 ```
 
 Note that this only works when `F.f`, `F.g` etc. are binary functions with the data as the second argument.
@@ -44,12 +40,10 @@ Note that this only works when `F.f`, `F.g` etc. are binary functions with the d
 Some functions may not fit this mould. Functions of arbitrary arity are supported using uncurrying. The expression:
 
 ```js
-infix(F)
-  (a)
+infix(F)(a)
   .f(b)
   [uncurry](g)([c, d])
-  .h(e)
-  .unwrap
+  .h(e).unwrap
 ```
 
 desugars to:
