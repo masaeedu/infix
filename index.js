@@ -10,9 +10,10 @@ const infix = X => {
   const wrap = x => {
     const methods = Obj.map(f => v => wrap(f(v)(x)))(X);
     const uncurrier = k => xs => wrap(Fn.uncurry(X[k])([...xs, x]));
-    return { ...methods, [uncurry]: uncurrier, unwrap: x };
+
+    return { ...methods, [uncurry]: uncurrier, unwrap: x, _: x };
   };
   return wrap;
 };
 
-module.exports = { infix, uncurry };
+module.exports = { infix, _: infix, uncurry };
